@@ -1,0 +1,36 @@
+﻿@model List<BusinessManager.Models.PageDataModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Manage Pages</h2>
+
+<!-- Content unit - One column -->
+<h1 class="block">All Pages</h1>
+<div class="column1-unit">
+    <table>
+        <tr>
+            <th class="top" scope="col">Name</th>
+            <th class="top" scope="col">Heading 2</th>
+            <th class="top" scope="col">Heading 3</th>
+            <th class="top" scope="col"></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Name</th>
+                <td>Data</td>
+                <td>Data</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id=item.ID })</td>
+            </tr>
+        }
+    </table>
+    
+</div>
+<hr class="clear-contentunit" />
+
+<div>
+    @Html.ActionLink("Create Page", "Create")
+</div>

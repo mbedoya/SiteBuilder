@@ -1,0 +1,22 @@
+﻿using BusinessManager.Business;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using WebSite.Models;
+
+namespace WebSite.Controllers
+{
+    public class BlogController : Controller
+    {
+        //
+        // GET: /Blog/
+
+        public ActionResult Index()
+        {
+            return View(new BlogHomeUIModel(){ Pages = PageBO.GetAll()});
+        }
+
+    }
+}

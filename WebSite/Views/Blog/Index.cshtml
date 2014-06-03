@@ -1,0 +1,15 @@
+﻿@model WebSite.Models.BlogHomeUIModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+<p>"Debidamente entrenado, el hombre puede llegar a ser el mejor amigo del perro"</p>
+
+@foreach (var item in Model.Pages)
+{
+    <b>@item.Name</b>
+    <br />
+    <p>@item.Content</p>
+}

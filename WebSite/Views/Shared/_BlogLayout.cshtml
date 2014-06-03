@@ -1,0 +1,165 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css/layout4_setup.css")
+    @Styles.Render("~/Content/css/layout4_text.css")
+</head>
+<body>
+
+    <!-- Main Page Container -->
+  <div class="page-container">
+
+   <!-- For alternative headers START PASTE here -->
+
+    <!-- A. HEADER -->      
+    <div class="header">
+      
+      <!-- A.1 HEADER TOP -->
+      <div class="header-top">
+        
+        <!-- Sitelogo and sitename -->
+        <a class="sitelogo" href="#" title="Go to Start page"></a>
+        <div class="sitename">
+          <h1><a href="index.html" title="Go to Start page">Felicis</span></a></h1>
+          <h2>Blog</h2>
+        </div>
+    
+        <!-- Navigation Level 0 -->
+        <div class="nav0">
+          <ul>
+            <li><a href="#" title="Pagina home in Italiano"><img src="./img/flag_italy.gif" alt="Image description" /></a></li>
+            <li><a href="#" title="Homepage auf Deutsch"><img src="./img/flag_germany.gif" alt="Image description" /></a></li>
+            <li><a href="#" title="Hemsidan p&aring; svenska"><img src="./img/flag_sweden.gif" alt="Image description" /></a></li>
+          </ul>
+        </div>			
+
+        <!-- Navigation Level 1 -->
+        <div class="nav1">
+          <ul>
+            <li><a href="#" title="Go to Start page">Contacto</a></li>
+            <li><a href="#" title="Get to know who we are">Acerca de</a></li>            
+          </ul>
+        </div>              
+      </div>     
+      
+      
+      <!-- A.3 HEADER BOTTOM -->
+      <div class="header-bottom">
+      
+        <!-- Navigation Level 2 (Drop-down menus) -->
+        <div class="nav2">
+	
+          <!-- Navigation item -->
+          <ul>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+          
+          <!-- Navigation item -->
+          <ul>
+            <li><a href="#">Archivo<!--[if IE 7]><!--></a><!--<![endif]-->
+              <!--[if lte IE 6]><table><tr><td><![endif]-->
+                <ul>
+                  <li><a href="layout1.html">2014</a></li>
+                  <li><a href="layout2.html">2013</a></li>
+                  <li><a href="layout3.html">2012</a></li>                  
+                </ul>
+              <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+            </li>
+          </ul>          
+
+          <!-- Navigation item -->
+          <ul>
+            <li>
+                <a href="#">Preguntanos</a>              
+            </li>
+          </ul>          
+        </div>
+	  </div>
+
+      <!-- A.4 HEADER BREADCRUMBS -->
+
+      <!-- Breadcrumbs -->
+      <div class="header-breadcrumbs">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Webdesign</a></li>
+          <li><a href="#">Templates</a></li>
+          <li>Multiflex-3</li>
+        </ul>
+
+        <!-- Search form -->                  
+        <div class="searchform">
+          <form action="#" method="get" class="form">
+            <fieldset>
+              <input value=" Search..." name="field" class="field" />
+              <input type="submit" value="GO!" name="button" class="button" />
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- For alternative headers END PASTE here -->
+
+    <!-- B. MAIN -->
+    <div class="main"> 
+      
+      <!-- B.2 MAIN CONTENT -->
+      <div class="main-content">
+         @RenderBody()
+      </div>
+                
+      <!-- B.3 SUBCONTENT -->
+      <div class="main-subcontent">
+
+        <!-- Subcontent unit -->
+        <div class="subcontent-unit-border">
+          <div class="round-border-topleft"></div><div class="round-border-topright"></div>
+          <h1>Los mejores artículos</h1>
+          <p>Multiflex-3 has five layout styles, for 1-column, 2-column and 3-column pages.</p>
+          <p>Multiflex-3 also has seven header layout styles.</p>
+          <p>See links in navigation bar for more details.</p>
+        </div>
+
+        <!-- Subcontent unit -->
+        <div class="subcontent-unit-border">
+          <div class="round-border-topleft"></div><div class="round-border-topright"></div>
+          <h1>Categorias</h1>
+          <p>The CSS code has been modularized into two files for easier maintenance:</p>   
+          <p>1) <strong>setup.css</strong> defines the basic layout structure of the page.</p>
+          <p>2) <strong>text.css</strong> defines the text formats available for the page main section.</p>
+        </div>
+
+        <!-- Subcontent unit -->
+        <div class="subcontent-unit-border-orange">
+          <div class="round-border-topleft"></div><div class="round-border-topright"></div>
+          <h1 class="orange">Pro Fundación</h1>
+          <p>My name is Wolfgang, and you may be surprised to hear that for my real job I work as a full-time pastor for a Christian church. Feel free to visit our global <a href="http://www.sda.org/">church website</a>.</p>          
+          <p>If you want to get in touch with me, you can check my <a href="http://www.1-2-3-4.info/"> website</a> or email me via <a href="http://www.oswd.org/user/profile/id/10227/">OSWD.org</a> contact form.</p>
+          <p class="center"><img class="center" src="./img/myphoto.jpg" alt="Image description" /></p>
+        </div>
+
+        <!-- Subcontent unit -->
+        <div class="subcontent-unit-border-green">
+          <div class="round-border-topleft"></div><div class="round-border-topright"></div>
+          <h1 class="green">Las preguntas favoritas</h1>
+          <p>Enjoy the template for free. There are no restrictions in the license. As a sign of appreciation, please keep the author credits "<a href="http://www.1-2-3-4.info/">Design by Wolfgang</a>" in the template footer. Thanks!</p>
+        </div>
+      </div>
+    </div>
+      
+    <!-- C. FOOTER AREA -->      
+
+    <div class="footer">
+      <p>Copyright &copy; 2014 Felicis | Todos los derechos reservados</p>
+      <p class="credits">Design by <a href="http://www.1-2-3-4.info/" title="Designer Homepage">Wolfgang</a>  | Modified by <a href="#" title="Modifyer Homepage">Felicis</a> </p>
+    </div>      
+  </div> 
+
+   
+</body>
+</html>
