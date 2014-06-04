@@ -10,5 +10,7 @@ namespace BusinessManager.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
+        public string FeaturedImage { get; set; }
+        public string MainImage { get; set; }
     }
 }

@@ -1,0 +1,19 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css/jquery.mobile-1.4.2.min.css")
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/Scripts/jquery.js")
+    @Scripts.Render("~/Scripts/jquery.mobile-1.4.2.js")
+</body>
+</html>

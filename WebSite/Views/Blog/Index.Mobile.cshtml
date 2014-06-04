@@ -1,0 +1,40 @@
+﻿@model WebSite.Models.BlogHomeUIModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+    string siteName = WebSite.WebUtilities.Misc.GetAppSetting(WebSite.WebUtilities.Const.AppSettings.SiteName);
+}
+
+<!-- Index -->
+<div data-role="page" id="pageindex" data-theme="a">
+
+    <div id="header" data-role="header">
+        <h3>@siteName Blog</h3>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">        
+
+        <ul id="postlist" data-role="listview" data-inset="true">
+
+            @foreach (var item in Model.Pages)
+            {
+                <li>
+                    <a href="#" id="forbiddenoption">                        
+                        <h3>@item.Name</h3>
+                        <p>@item.Content</p>
+                    </a>
+                </li>
+            }
+            
+        </ul>
+
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <h3>My Footer</h3>
+    </div>
+    <!-- /footer -->
+
+</div>

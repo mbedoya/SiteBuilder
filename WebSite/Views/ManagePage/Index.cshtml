@@ -5,32 +5,37 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Manage Pages</h2>
+<h2>Página</h2>
 
-<!-- Content unit - One column -->
-<h1 class="block">All Pages</h1>
+<h1 class="block">Administración de Página</h1>
 <div class="column1-unit">
     <table>
         <tr>
+
+            <th class="top" scope="col">ID</th>
             <th class="top" scope="col">Name</th>
-            <th class="top" scope="col">Heading 2</th>
-            <th class="top" scope="col">Heading 3</th>
+            <th class="top" scope="col">Content</th>
+            <th class="top" scope="col">FeaturedImage</th>
+            <th class="top" scope="col">MainImage</th>
             <th class="top" scope="col"></th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row">@item.Name</th>
-                <td>Data</td>
-                <td>Data</td>
-                <td>@Html.ActionLink("Edit", "Edit", new { id=item.ID })</td>
+
+                <td scope="row">@item.ID</td>
+                <td scope="row">@item.Name</td>
+                <td scope="row">@WebSite.WebUtilities.Misc.PreviewText(item.Content, 70)</td>
+                <td scope="row">@item.FeaturedImage</td>
+                <td scope="row">@item.MainImage</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</td>
             </tr>
         }
     </table>
-    
+
 </div>
 <hr class="clear-contentunit" />
 
 <div>
-    @Html.ActionLink("Create Page", "Create")
+    @Html.ActionLink("Crear Página", "Create")
 </div>

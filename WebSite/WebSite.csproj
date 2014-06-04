@@ -134,12 +134,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\css\jquery.mobile-1.4.2.min.css" />
     <Content Include="Content\css\layout1_setup.css" />
     <Content Include="Content\css\layout1_text.css" />
     <Content Include="Content\css\layout4_setup.css" />
     <Content Include="Content\css\layout4_text.css" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.2.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -168,6 +173,8 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\ManagePage\Edit.cshtml" />
     <Content Include="Views\ManagePage\Create.cshtml" />
+    <Content Include="Views\Blog\Index.Mobile.cshtml" />
+    <Content Include="Views\Shared\_BlogLayout.Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessManager\BusinessManager.csproj">

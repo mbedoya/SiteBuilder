@@ -12,5 +12,20 @@ namespace WebSite.WebUtilities
         {
             return ConfigurationManager.AppSettings[name];
         }
+
+        public static string PreviewText(string text, int length)
+        {
+            if (length > text.Length)
+            {
+                return text;
+            }
+            else
+            {
+                string maxText = text.Substring(0, length);
+                maxText = maxText.Substring(0, maxText.LastIndexOf(" ")) + " ...";
+
+                return maxText;
+            }
+        }
     }
 }
