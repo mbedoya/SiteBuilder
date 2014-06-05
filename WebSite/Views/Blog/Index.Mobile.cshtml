@@ -23,7 +23,7 @@
                 <li>
                     <a href="#" id="forbiddenoption">                        
                         <h3>@item.Name</h3>
-                        <p>@item.Content</p>
+                        <p>@Html.Raw(WebSite.WebUtilities.Misc.HTMLSubstring(item.Content, 150))</p>
                     </a>
                 </li>
             }

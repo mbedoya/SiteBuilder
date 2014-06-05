@@ -45,9 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessUtilies\Const\Database.cs" />
+    <Compile Include="Business\MenuBO.cs" />
     <Compile Include="Business\PageBO.cs" />
+    <Compile Include="Business\UserBO.cs" />
+    <Compile Include="Data\MenuDAL.cs" />
     <Compile Include="Data\PageDAL.cs" />
+    <Compile Include="Data\UserDAL.cs" />
+    <Compile Include="Models\MenuDataModel.cs" />
     <Compile Include="Models\PageDataModel.cs" />
+    <Compile Include="Models\UserDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

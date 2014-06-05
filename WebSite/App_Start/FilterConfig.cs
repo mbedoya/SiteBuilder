@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using WebSite.App_Start.Filters;
 
 namespace WebSite
 {
@@ -8,6 +9,7 @@ namespace WebSite
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new CheckAuthentication());
         }
     }
 }

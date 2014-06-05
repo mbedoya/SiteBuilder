@@ -11,5 +11,5 @@
 {
     <b>@item.Name</b>
     <br />
-    <p>@item.Content</p>
+    <p>@Html.Raw(WebSite.WebUtilities.Misc.HTMLSubstring(item.Content, 200))</p>
 }

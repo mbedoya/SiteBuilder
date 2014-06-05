@@ -13,6 +13,7 @@
     </title>
     @Styles.Render("~/Content/css/layout1_setup.css")
     @Styles.Render("~/Content/css/layout1_text.css")
+    @Styles.Render("~/Content/css/styles.css")
 </head>
 <body>
 
@@ -47,21 +48,8 @@
       
         <!-- Navigation Level 2 (Drop-down menus) -->
         <div class="nav2">
-	
-          <!-- Navigation item -->
-          <ul>
-            <li><a href="index.html">Site Settings</a></li>
-          </ul>
-          
-          <!-- Navigation item -->
-          <ul>
-            <li><a href="#">Pages</a></li>
-          </ul>          
-
-          <!-- Navigation item -->
-          <ul>
-            <li><a href="#">Menus</a></li>
-          </ul>
+         
+            @{ Html.RenderAction("Menu", "Admin"); }            
                    
         </div>
 	  </div>
@@ -87,7 +75,9 @@
       <p class="credits">Design by <a href="http://www.1-2-3-4.info/" title="Designer Homepage">Wolfgang</a>  | Modified by <a href="/" title="@siteName Homepage">@siteName</a> </p>
     </div>
 
-  </div>    
-    
+  </div>
+
+    @RenderSection("scripts", required: false)
+
 </body>
 </html>

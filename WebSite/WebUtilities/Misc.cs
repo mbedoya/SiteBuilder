@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace WebSite.WebUtilities
@@ -11,6 +12,12 @@ namespace WebSite.WebUtilities
         public static string GetAppSetting(string name)
         {
             return ConfigurationManager.AppSettings[name];
+        }
+
+        public static string HTMLSubstring(string html, int length)
+        {
+            string regex = @"(<.+?>|&nbsp;|&ldquo;|&.+uo;)";
+            return PreviewText(Regex.Replace(html, regex, "").Trim(), length);
         }
 
         public static string PreviewText(string text, int length)

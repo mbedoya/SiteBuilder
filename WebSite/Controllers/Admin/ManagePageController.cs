@@ -23,7 +23,7 @@ namespace WebSite.Controllers.Admin
             return View(PageBO.Get(id));
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(PageDataModel pagedm)
         {
             PageBO.Update(pagedm);
@@ -36,7 +36,7 @@ namespace WebSite.Controllers.Admin
             return View();
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(PageDataModel pagedm)
         {
             PageBO.Create(pagedm);

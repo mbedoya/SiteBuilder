@@ -3,9 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MySql.Data.MySqlClient;
 using System.Data;
 using System.Configuration;
+
+using MySql.Data.MySqlClient;
 
 namespace BusinessManager.Data
 {
@@ -23,18 +24,16 @@ namespace BusinessManager.Data
 
             foreach (DataRow item in results.Rows)
             {
-                pages.Add(
-                    new PageDataModel()
-                    {
-                        ID = Convert.ToInt32(item["ID"]),
-                        Name = item["Name"].ToString(),
-                        Content = item["Content"].ToString()
-                    }
-                );
-                 
-            }
+                PageDataModel page = new PageDataModel();
 
-            
+                page.ID = Convert.ToInt32(item["ID"]);
+                page.Name = Convert.ToString(item["Name"]);
+                page.Content = Convert.ToString(item["Content"]);
+                page.FeaturedImage = Convert.ToString(item["FeaturedImage"]);
+                page.MainImage = Convert.ToString(item["MainImage"]);
+
+                pages.Add(page);
+            }
 
             return pages;
         }
@@ -45,7 +44,7 @@ namespace BusinessManager.Data
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[BusinessUtilies.Const.Database.AppSetting]);
             MySqlDataAdapter adapter = new MySqlDataAdapter(BusinessUtilies.Const.Database.Procedure_GetPage, connection);
-            MySqlParameter paramID = new MySqlParameter("id", id);
+            MySqlParameter paramID = new MySqlParameter("pId", id);
             paramID.Direction = ParameterDirection.Input;
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.SelectCommand.Parameters.Add(paramID);
@@ -54,14 +53,16 @@ namespace BusinessManager.Data
 
             adapter.Fill(results);
 
-            if(results.Rows.Count > 0)
+            if (results.Rows.Count > 0)
             {
                 DataRow item = results.Rows[0];
-                page = new PageDataModel()
-                {
-                    Name = item["Name"].ToString(),
-                    Content = item["Content"].ToString()
-                };
+                page = new PageDataModel();
+
+                page.ID = Convert.ToInt32(item["ID"]);
+                page.Name = Convert.ToString(item["Name"]);
+                page.Content = Convert.ToString(item["Content"]);
+                page.FeaturedImage = Convert.ToString(item["FeaturedImage"]);
+                page.MainImage = Convert.ToString(item["MainImage"]);
             }
 
             return page;
@@ -71,38 +72,53 @@ namespace BusinessManager.Data
         {
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[BusinessUtilies.Const.Database.AppSetting]);
             MySqlDataAdapter adapter = new MySqlDataAdapter(BusinessUtilies.Const.Database.Procedure_UpdatePage, connection);
-            MySqlParameter paramID = new MySqlParameter("id", page.ID);
-            paramID.Direction = ParameterDirection.Input;
-            MySqlParameter paramName = new MySqlParameter("name", page.Name);
-            paramName.Direction = ParameterDirection.Input;
-            MySqlParameter paramContent = new MySqlParameter("content", page.Content);
-            paramContent.Direction = ParameterDirection.Input;
-
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+            MySqlParameter paramID = new MySqlParameter("pID", page.ID);
+            paramID.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramID);
+            MySqlParameter paramName = new MySqlParameter("pName", page.Name);
+            paramName.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramName);
+            MySqlParameter paramContent = new MySqlParameter("pContent", page.Content);
+            paramContent.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramContent);
+            MySqlParameter paramFeaturedImage = new MySqlParameter("pFeaturedImage", page.FeaturedImage);
+            paramFeaturedImage.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramFeaturedImage);
+            MySqlParameter paramMainImage = new MySqlParameter("pMainImage", page.MainImage);
+            paramMainImage.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramMainImage);
 
             DataTable results = new DataTable();
-
             adapter.Fill(results);
         }
 
         public static void Create(PageDataModel page)
         {
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings[BusinessUtilies.Const.Database.AppSetting]);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(BusinessUtilies.Const.Database.Procedure_CreatePage, connection);            
-            MySqlParameter paramName = new MySqlParameter("name", page.Name);
-            paramName.Direction = ParameterDirection.Input;
-            MySqlParameter paramContent = new MySqlParameter("content", page.Content);
-            paramContent.Direction = ParameterDirection.Input;
+            MySqlDataAdapter adapter = new MySqlDataAdapter(BusinessUtilies.Const.Database.Procedure_CreatePage, connection);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;            
+
+            MySqlParameter paramID = new MySqlParameter("pID", page.ID);
+            paramID.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramID);
+            MySqlParameter paramName = new MySqlParameter("pName", page.Name);
+            paramName.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramName);
+            MySqlParameter paramContent = new MySqlParameter("pContent", page.Content);
+            paramContent.Direction = ParameterDirection.Input;
             adapter.SelectCommand.Parameters.Add(paramContent);
+            MySqlParameter paramFeaturedImage = new MySqlParameter("pFeaturedImage", page.FeaturedImage);
+            paramFeaturedImage.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramFeaturedImage);
+            MySqlParameter paramMainImage = new MySqlParameter("pMainImage", page.MainImage);
+            paramMainImage.Direction = ParameterDirection.Input;
+            adapter.SelectCommand.Parameters.Add(paramMainImage);
 
             DataTable results = new DataTable();
-
             adapter.Fill(results);
         }
     }

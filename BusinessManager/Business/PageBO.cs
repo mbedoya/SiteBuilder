@@ -29,7 +29,7 @@ namespace BusinessManager.Business
             {
                 throw new Exception("Page not found");
             }
-            
+
         }
 
         public static void Create(PageDataModel page)
