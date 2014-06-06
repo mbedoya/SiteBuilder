@@ -2,6 +2,10 @@
 
 }
 
+img {
+    border: 0px solid !important;
+}
+
 fieldset .editor-label {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -13,6 +17,13 @@ fieldset .editor-field {
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 10px;
+}
+
+fieldset .editor-field-file {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    height: 65px;
 }
 
 fieldset input[type=text]{    

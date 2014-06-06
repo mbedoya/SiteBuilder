@@ -4,37 +4,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Utilities;
 
 namespace BusinessManager.Business
 {
-    public static class PageBO
+    public class PageBO : BasePageBO
     {
-        public static List<PageDataModel> GetAll()
+        public static List<PageDataModel> GetBlogPages()
         {
-            return PageDAL.GetAll();
-        }
-
-        public static PageDataModel Get(int id)
-        {
-            return PageDAL.Get(id);
-        }
-
-        public static void Update(PageDataModel page)
-        {
-            if (page.ID > 0)
-            {
-                PageDAL.Update(page);
-            }
-            else
-            {
-                throw new Exception("Page not found");
-            }
-
-        }
-
-        public static void Create(PageDataModel page)
-        {
-            PageDAL.Create(page);
+            return PageDAL.GetBlogPages();
         }
     }
 }
+
+

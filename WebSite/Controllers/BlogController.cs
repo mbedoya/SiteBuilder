@@ -15,7 +15,7 @@ namespace WebSite.Controllers
 
         public ActionResult Index()
         {
-            return View(new BlogHomeUIModel(){ Pages = PageBO.GetAll()});
+            return View(new BlogHomeUIModel(){ Pages = PageBO.GetBlogPages()});
         }
 
     }

@@ -1,52 +1,72 @@
-﻿@using System.Web.Optimization
+@using System.Web.Optimization
 
 @model BusinessManager.Models.PageDataModel
 
 @{
-    ViewBag.Title = "Página Edit";
+    ViewBag.Title = "Pagina Edicion";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edición de Página</h2>
+<h2>Edicion de Pagina</h2>
 
-@using (Html.BeginForm())
-{
+@using ( Html.BeginForm(null, null, FormMethod.Post ,new { enctype = "multipart/form-data" })) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Página</legend>
+        <legend>Pagina</legend>
 
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name, new { maxLength = 100 })
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Content)
-        </div>
-        <div class="editor-field">
-            <textarea class="ckeditor" name="Content">@if (Model != null)
-                                                      { @Model.Content;
-                                                      }</textarea>
-            @Html.ValidationMessageFor(model => model.Content)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FeaturedImage)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FeaturedImage, new { maxLength = 45 })
-            @Html.ValidationMessageFor(model => model.FeaturedImage)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.MainImage)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.MainImage, new { maxLength = 45 })
-            @Html.ValidationMessageFor(model => model.MainImage)
-        </div>
+        
+	<div class="editor-label">
+	 @Html.LabelFor(model => model.Name)
+	</div>
+	<div class="editor-field">
+	 @Html.EditorFor(model => model.Name, new { maxLength = 100 })
+	 @Html.ValidationMessageFor(model => model.Name)
+	</div>
+	<div class="editor-label">
+	 @Html.LabelFor(model => model.Content)
+	</div>
+	<div class="editor-field">
+	 <textarea class="ckeditor" name="Content" >@if(Model != null){ @Model.Content; }</textarea>
+	 @Html.ValidationMessageFor(model => model.Content)
+	</div>
+	<div class="editor-label">
+	 @Html.LabelFor(model => model.Blog)
+	</div>
+	<div class="editor-field">
+	 @Html.EditorFor(model => model.Blog, new { maxLength = 10})
+	 @Html.ValidationMessageFor(model => model.Blog)
+	</div>
+	<div class="editor-label">
+	 @Html.LabelFor(model => model.Metakeywords)
+	</div>
+	<div class="editor-field">
+	 @Html.EditorFor(model => model.Metakeywords, new { maxLength = 70 })
+	 @Html.ValidationMessageFor(model => model.Metakeywords)
+	</div>
+	<div class="editor-label">
+	 @Html.LabelFor(model => model.MetaDescription)
+	</div>
+	<div class="editor-field">
+	 @Html.EditorFor(model => model.MetaDescription, new { maxLength = 70 })
+	 @Html.ValidationMessageFor(model => model.MetaDescription)
+	</div>
+	<div class="editor-label">
+	 @Html.LabelFor(model => model.FeaturedImage)
+	</div>
+	<div class="editor-field-file">
+		 <input type='file' name="fileFeaturedImage">
+		 @if(Model != null) {  Html.RenderAction("FileDisplay", "Admin", new { url = Model.FeaturedImage }); } 
+	</div>
+	<div class="editor-label">
+	 @Html.LabelFor(model => model.MainImage)
+	</div>
+	<div class="editor-field-file">
+		 <input type='file' name="fileMainImage">
+		 @if(Model != null) {  Html.RenderAction("FileDisplay", "Admin", new { url = Model.MainImage }); } 
+	</div>
+	 @Html.HiddenFor(model => model.FeaturedImage)
+	 @Html.HiddenFor(model => model.MainImage)
 
         @Html.HiddenFor(model => model.ID)
 
@@ -60,4 +80,19 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section scripts{ @Scripts.Render("~/Scripts/ckeditor/ckeditor.js") }
+@section scripts{ 
+
+    @Scripts.Render("~/Scripts/jquery.js")
+    @Scripts.Render("~/Scripts/ckeditor/ckeditor.js") 
+    @Scripts.Render("~/Scripts/jquery.fancybox.js")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.fancybox').fancybox();
+        });
+    </script>
+}
+
+@section styles{ 
+    @Styles.Render("~/Content/css/jquery.fancybox.css")
+}

@@ -1,4 +1,4 @@
-﻿using BusinessManager.Business;
+using BusinessManager.Business;
 using BusinessManager.Models;
 using System;
 using System.Collections.Generic;
@@ -24,9 +24,9 @@ namespace WebSite.Controllers.Admin
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(PageDataModel pagedm)
+        public ActionResult Edit(PageDataModel page)
         {
-            PageBO.Update(pagedm);
+            PageBO.Update(page);
 
             return RedirectToAction("Index");
         }
@@ -37,9 +37,9 @@ namespace WebSite.Controllers.Admin
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Create(PageDataModel pagedm)
+        public ActionResult Create(PageDataModel page)
         {
-            PageBO.Create(pagedm);
+            PageBO.Create(page);
 
             return RedirectToAction("Index");
         }

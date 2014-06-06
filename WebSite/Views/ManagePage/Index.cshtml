@@ -1,41 +1,37 @@
-﻿@model List<BusinessManager.Models.PageDataModel>
+@model List<BusinessManager.Models.PageDataModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pagina Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Página</h2>
+<h2>Pagina</h2>
 
-<h1 class="block">Administración de Página</h1>
+<h1 class="block">Administracion de Pagina</h1>
 <div class="column1-unit">
     <table>
         <tr>
-
-            <th class="top" scope="col">ID</th>
-            <th class="top" scope="col">Name</th>
-            <th class="top" scope="col">Content</th>
-            <th class="top" scope="col">FeaturedImage</th>
-            <th class="top" scope="col">MainImage</th>
+            
+	<th class="top" scope="col">ID</th>
+	<th class="top" scope="col">Name</th>
+	<th class="top" scope="col">Blog</th>            
             <th class="top" scope="col"></th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-
-                <td scope="row">@item.ID</td>
-                <td scope="row">@item.Name</td>
-                <td scope="row">@WebSite.WebUtilities.Misc.PreviewText(item.Content, 70)</td>
-                <td scope="row">@item.FeaturedImage</td>
-                <td scope="row">@item.MainImage</td>
-                <td>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</td>
+                
+	<td scope="row">@item.ID</td>
+	<td scope="row">@item.Name</td>
+	<td scope="row">@item.Blog</td>                
+                <td>@Html.ActionLink("Edit", "Edit", new { id=item.ID })</td>
             </tr>
         }
     </table>
-
+    
 </div>
 <hr class="clear-contentunit" />
 
 <div>
-    @Html.ActionLink("Crear Página", "Create")
+    @Html.ActionLink("Crear Pagina", "Create")
 </div>
